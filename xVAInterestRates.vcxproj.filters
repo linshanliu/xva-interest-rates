@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\core">
+      <UniqueIdentifier>{a70cd4b0-d0cc-4d04-b565-884d699675cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\market">
+      <UniqueIdentifier>{23c626bc-15e8-473b-8f1b-ad4c5347f8e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\model">
+      <UniqueIdentifier>{4e359baf-0c4f-4fea-a26a-d704d620ccde}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\view">
+      <UniqueIdentifier>{15f0f96b-fbf2-4ab4-a136-0dd8907003bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\instrument">
+      <UniqueIdentifier>{1c0df5b7-152d-4870-aaa6-d52a391817db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\simulation">
+      <UniqueIdentifier>{b6f74ad4-56ab-4f53-8374-22beb49db833}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CreditCurve.hpp">
+      <Filter>Header Files\market</Filter>
+    </ClInclude>
+    <ClInclude Include="DiscountCurve.hpp">
+      <Filter>Header Files\market</Filter>
+    </ClInclude>
+    <ClInclude Include="IStochasticModel.hpp">
+      <Filter>Header Files\model</Filter>
+    </ClInclude>
+    <ClInclude Include="HullWhite1F.hpp">
+      <Filter>Header Files\model</Filter>
+    </ClInclude>
+    <ClInclude Include="FlatCurve.hpp">
+      <Filter>Header Files\market</Filter>
+    </ClInclude>
+    <ClInclude Include="IInstrument.hpp">
+      <Filter>Header Files\instrument</Filter>
+    </ClInclude>
+    <ClInclude Include="MarketView.hpp">
+      <Filter>Header Files\view</Filter>
+    </ClInclude>
+    <ClInclude Include="FixingStore.hpp">
+      <Filter>Header Files\view</Filter>
+    </ClInclude>
+    <ClInclude Include="Zcb.hpp">
+      <Filter>Header Files\instrument</Filter>
+    </ClInclude>
+    <ClInclude Include="FRA.hpp">
+      <Filter>Header Files\instrument</Filter>
+    </ClInclude>
+    <ClInclude Include="IRS.hpp">
+      <Filter>Header Files\instrument</Filter>
+    </ClInclude>
+    <ClInclude Include="Simulator.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IShortRateModel.hpp">
+      <Filter>Header Files\model</Filter>
+    </ClInclude>
+    <ClInclude Include="ScenarioSet.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PathGenerator.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="HullWhite1F.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HW1FView.hpp">
+      <Filter>Header Files\view</Filter>
+    </ClCompile>
+    <ClCompile Include="Zcb.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main_ZCB.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FRA.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main_FRA.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="IRS.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main_IRS.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PathGenerator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main_Simulator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
