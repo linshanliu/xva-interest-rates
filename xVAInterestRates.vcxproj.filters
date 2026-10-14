@@ -66,9 +66,6 @@
     <ClInclude Include="IRS.hpp">
       <Filter>Header Files\instrument</Filter>
     </ClInclude>
-    <ClInclude Include="Simulator.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="IShortRateModel.hpp">
       <Filter>Header Files\model</Filter>
     </ClInclude>
@@ -76,6 +73,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="PathGenerator.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ExposureCube.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ExposureEngine.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -111,6 +114,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="main_Simulator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ExposureEngine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main_exposure.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
