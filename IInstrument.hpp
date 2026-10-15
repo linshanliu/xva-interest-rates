@@ -29,5 +29,4 @@ public:
     virtual std::vector<FixingSpec> fixings() const { return {}; }
 };
 
-
 #endif // !IINSTRUMENT_HPP

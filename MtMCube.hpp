@@ -1,5 +1,5 @@
-#ifndef EXPOSURECUBE_HPP
-#define EXPOSURECUBE_HPP
+#ifndef MTMCUBE_HPP
+#define MTMCUBE_HPP
 
 #include <cstddef>
 #include <vector>
@@ -11,7 +11,7 @@
 //
 // Values are undiscounted MtM at t_k (unit notional, holder's perspective),
 // excluding cash flows paid at or before t_k (ex-coupon).
-struct ExposureCube {
+struct MtMCube {
     std::vector<double> times;
     std::size_t nTrades = 0;
     std::size_t nPaths = 0;
@@ -26,4 +26,4 @@ struct ExposureCube {
     }
 };
 
-#endif // !EXPOSURECUBE_HPP
+#endif // !MTMCUBE_HPP

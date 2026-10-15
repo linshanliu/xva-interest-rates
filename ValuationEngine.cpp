@@ -1,4 +1,4 @@
-#include "ExposureEngine.hpp"
+#include "ValuationEngine.hpp"
 
 #include <algorithm>
 #include <cmath>
@@ -25,20 +25,20 @@ namespace {
 
 } // namespace
 
-ExposureEngine::ExposureEngine(std::shared_ptr<const HullWhite1F> model, double tol)
+ValuationEngine::ValuationEngine(std::shared_ptr<const HullWhite1F> model, double tol)
     : model_(std::move(model)), tol_(tol)
 {
-    if (!model_) throw std::invalid_argument("ExposureEngine: model is null");
+    if (!model_) throw std::invalid_argument("ValuationEngine: model is null");
 }
 
-ExposureCube ExposureEngine::run(const ScenarioSet& scen,
+MtMCube ValuationEngine::run(const ScenarioSet& scen,
     const std::vector<std::shared_ptr<const Instrument>>& trades) const
 {
     const std::size_t nSteps = scen.nSteps;
     const std::size_t nPaths = scen.nPaths;
     const std::size_t nTrades = trades.size();
     if (nSteps == 0 || scen.times.size() != nSteps)
-        throw std::invalid_argument("ExposureEngine: empty or inconsistent scenario set");
+        throw std::invalid_argument("ValuationEngine: empty or inconsistent scenario set");
     const double horizon = scen.times.back();
 
     // ---- 1. Collect fixings, check ids, map each fixing to its grid step ----
@@ -47,13 +47,13 @@ ExposureCube ExposureEngine::run(const ScenarioSet& scen,
 
     for (const auto& trade : trades) {
         for (const FixingSpec& f : trade->fixings()) {
-            if (f.id < 0) throw std::invalid_argument("ExposureEngine: negative fixing id");
+            if (f.id < 0) throw std::invalid_argument("ValuationEngine: negative fixing id");
             const std::size_t id = static_cast<std::size_t>(f.id);
             if (id >= byId.size()) byId.resize(id + 1, FixingSpec{ -1, -1.0, 0.0, 0.0, 0.0 });
 
             if (byId[id].fixDate >= 0.0) {                // id already registered
                 if (!sameFixing(byId[id], f, tol_))
-                    throw std::invalid_argument("ExposureEngine: fixing id " + std::to_string(f.id)
+                    throw std::invalid_argument("ValuationEngine: fixing id " + std::to_string(f.id)
                         + " used for two different fixings");
                 continue;                                 // same fixing shared: record once
             }
@@ -62,14 +62,14 @@ ExposureCube ExposureEngine::run(const ScenarioSet& scen,
             if (f.fixDate > horizon + tol_) continue;     // beyond the simulation horizon
             const long k = findGridIndex(scen.times, f.fixDate, tol_);
             if (k < 0)
-                throw std::invalid_argument("ExposureEngine: fixing date " + std::to_string(f.fixDate)
+                throw std::invalid_argument("ValuationEngine: fixing date " + std::to_string(f.fixDate)
                     + " is not on the simulation grid");
             fixingsAtStep[static_cast<std::size_t>(k)].push_back(f);
         }
     }
 
     // ---- 2. Allocate output ----
-    ExposureCube cube;
+    MtMCube cube;
     cube.times = scen.times;
     cube.nTrades = nTrades;
     cube.nPaths = nPaths;

@@ -21,8 +21,11 @@
   <ItemGroup>
     <ClInclude Include="CreditCurve.hpp" />
     <ClInclude Include="DiscountCurve.hpp" />
-    <ClInclude Include="ExposureCube.hpp" />
-    <ClInclude Include="ExposureEngine.hpp" />
+    <ClInclude Include="Exposure.hpp" />
+    <ClInclude Include="FlatHazardCurve.hpp" />
+    <ClInclude Include="MtMCube.hpp" />
+    <ClInclude Include="NettingSet.hpp" />
+    <ClInclude Include="ValuationEngine.hpp" />
     <ClInclude Include="FixingStore.hpp" />
     <ClInclude Include="FlatCurve.hpp" />
     <ClInclude Include="FRA.hpp" />
@@ -34,10 +37,19 @@
     <ClInclude Include="MarketView.hpp" />
     <ClInclude Include="PathGenerator.hpp" />
     <ClInclude Include="ScenarioSet.hpp" />
+    <ClInclude Include="xVA.hpp" />
     <ClInclude Include="Zcb.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ExposureEngine.cpp" />
+    <ClCompile Include="Exposure.cpp" />
+    <ClCompile Include="main_exposure.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="main_xva.cpp" />
+    <ClCompile Include="ValuationEngine.cpp" />
     <ClCompile Include="FRA.cpp" />
     <ClCompile Include="HullWhite1F.cpp" />
     <ClCompile Include="HW1FView.hpp" />
@@ -48,7 +60,12 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="main_exposure.cpp" />
+    <ClCompile Include="main_valuation.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="main_FRA.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
@@ -74,6 +91,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="PathGenerator.cpp" />
+    <ClCompile Include="xVA.cpp" />
     <ClCompile Include="Zcb.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

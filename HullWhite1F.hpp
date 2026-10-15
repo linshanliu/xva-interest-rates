@@ -28,11 +28,14 @@ public:
 	
 	double zcb(double t, double T, double r) const;
 
+
+	double shortRate(double t, const std::vector<double>& state) const override;
+
+
 	// Getters
 	double a() const;
 	double sigma() const;
 	const DiscountCurve& curve() const;
-	double shortRate(double t, const std::vector<double>& state) const override;
 private:
 	// DiscountCurve is a abstract class so we use a pointer.
 	// We use a shared_ptr to manage the lifetime of the DiscountCurve object

@@ -1,10 +1,10 @@
-#ifndef EXPOSUREENGINE_HPP
-#define EXPOSUREENGINE_HPP
+#ifndef VALUATIONENGINE_HPP
+#define VALUATIONENGINE_HPP
 
 #include <memory>
 #include <vector>
 
-#include "ExposureCube.hpp"
+#include "MtMCube.hpp"
 #include "HullWhite1F.hpp"
 #include "IInstrument.hpp"
 #include "ScenarioSet.hpp"
@@ -19,11 +19,11 @@
 // Requirements (checked, std::invalid_argument otherwise):
 //   - every fixing date within the grid horizon lies on the grid (within tol)
 //   - fixing ids are non-negative; an id shared by two specs must describe the same fixing
-class ExposureEngine {
+class ValuationEngine {
 public:
-    explicit ExposureEngine(std::shared_ptr<const HullWhite1F> model, double tol = 1e-10);
+    explicit ValuationEngine(std::shared_ptr<const HullWhite1F> model, double tol = 1e-10);
 
-    ExposureCube run(const ScenarioSet& scen,
+    MtMCube run(const ScenarioSet& scen,
         const std::vector<std::shared_ptr<const Instrument>>& trades) const;
 
 private:
@@ -31,4 +31,4 @@ private:
     double tol_;
 };
 
-#endif // !EXPOSUREENGINE_HPP
+#endif // !VALUATIONENGINE_HPP
